@@ -14,13 +14,13 @@ class BirthdayWish(Frame):
         #add logo
 
         top = Toplevel()
-        top.iconbitmap('C:/Users/mgodw/Documents/GOSH-FHRworks2020-BirthdayWish/BirthdayWish/logo.ico')
+        #top.iconbitmap('C:/Users/mgodw/Documents/GOSH-FHRworks2020-BirthdayWish/BirthdayWish/logo.ico')
         top.geometry('300x500')
         top.resizable(False, False)
 
-        img = Image.open('C:/Users/mgodw/Documents/GOSH-FHRworks2020-BirthdayWish/BirthdayWish/logo.png')
-        img = img.resize((100, 100), Image.ANTIALIAS)
-        img = ImageTk.PhotoImage(img)
+        #img = Image.open('C:/Users/mgodw/Documents/GOSH-FHRworks2020-BirthdayWish/BirthdayWish/logo.png')
+        #img = img.resize((100, 100), Image.ANTIALIAS)
+        #img = ImageTk.PhotoImage(img)
 
         #display the loading page + click button to reshow the root screen and hide top
         top.columnconfigure(0, pad=10)
@@ -109,7 +109,7 @@ class BirthdayWish(Frame):
         self.pack()
 
     def button_click(self, number, mainTop):
-        data = requests.get('http://127.0.0.1:5002/p/muna/').json()
+        data = requests.get('http://127.0.0.1:5002/p/birthdayWish_Api/').json()
 
         i = 9
         while i < 14:
@@ -209,7 +209,7 @@ def main():
     #root.resizable(False, False)
 
     #add icon
-    root.iconbitmap('C:/Users/mgodw/Documents/GOSH-FHRworks2020-BirthdayWish/BirthdayWish/logo.ico')
+    #root.iconbitmap('C:/Users/mgodw/Documents/GOSH-FHIRworks2020-BirthdayWish/BirthdayWish/logo.ico')
     app = BirthdayWish()
     root.mainloop()
 
