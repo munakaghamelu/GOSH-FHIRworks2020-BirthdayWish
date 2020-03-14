@@ -8,12 +8,14 @@ Prerequisites:
 - Python environment, tkinter, flask, FHIR parser imports needed
 - My API utilises port 5002
 
-1. Clone repository locally
+How to open application:
 
-2. Make sure FHIR is running in the background, see https://github.com/goshdrive/FHIRworks_2020 for instructions
+- Clone repository locally
 
-3. 'BirthdayWish' contains my application and 'Api' my API that is used by BirthdayWish
+- Make sure FHIR is running in the background, see https://github.com/goshdrive/FHIRworks_2020 for instructions
 
-4. open the cloned repository in your chosen editor, run the birthdayWish_api.py file first e.g. 'cd Api -> python birthdayWish_api.py'. Then run BirthdayWish.py file e.g. 'cd BirthdayWish -> python birthdayWish.py'
+- 'BirthdayWish' contains my application and 'Api' my API that is used by BirthdayWish
 
-5. The application should open within your IDE as a GUI created with tkinter
+- open the cloned repository in your chosen editor, run the birthdayWish_api.py file first e.g. 'cd Api -> python birthdayWish_api.py'. Then run BirthdayWish.py file e.g. 'cd BirthdayWish -> python birthdayWish.py'
+
+- The application should open within your IDE as a GUI created with tkinter
