@@ -5,12 +5,16 @@ from tkinter.ttk import *
 
 class BirthdayWish(Frame):
 
+
     def __init__(self):
         super().__init__()
+        root = Tk()
+        root.withdraw()
+        self.startPageUI(root)
+        root.mainloop()
 
-        self.startPageUI()
+    def startPageUI(self, root):
 
-    def startPageUI(self):
         #add logo
 
         top = Toplevel()
@@ -23,15 +27,41 @@ class BirthdayWish(Frame):
         #img = ImageTk.PhotoImage(img)
 
         #display the loading page + click button to reshow the root screen and hide top
+        top.configure(bg='white')
         top.columnconfigure(0, pad=10)
+        top.columnconfigure(1, pad=10)
+        top.columnconfigure(2, pad=10)
         top.rowconfigure(0, pad=10)
-        top.rowconfigure(0, pad=10)
-        canvas = Canvas(top, width=100, height=200)
-        canvas.grid(row=0, column=0)
-        Button(top, text="Load Application", command=lambda :[top.withdraw(), self.startMainUI()]).grid(row=1, column=0)
+        top.rowconfigure(1)
+        top.rowconfigure(2)
+        top.rowconfigure(3, pad=10)
 
-    def startMainUI(self):
+        canvas = Canvas(top, bg="PaleTurquoise1", width=50, height=200).grid(row=0, column=0)
+        canvas2 = Canvas(top, bg="PaleTurquoise1", width=50, height=200).grid(row=0, column=2)
+        canvas3 = Canvas(top, bg="plum1", width=50, height=200).grid(row=2, column=0)
+        canvas3 = Canvas(top, bg="plum1", width=50, height=200).grid(row=2, column=2)
+
+        #display logo + button to loading application
+        logo = ImageTk.PhotoImage(file="logo.png")
+        label = Label(top, image=logo)
+        label.image = logo
+        label.grid(row=0, column=1)
+
+        #label containing the quote, need to change the colour
+        Label(top, text="'Empathy is a quality character").grid(row=1, columnspan=3)
+        Label(top, text="that can change the world.'").grid(row=2, columnspan=3)
+
+        #add button to main page
+        button = Button(top, text="Load Application", command=lambda :[top.withdraw(), self.startMainUI(root, top)]).grid(row=3, columnspan=3)
+
+        #Label(top, text="logo", image=logo).grid(row=1, columnspan=2)
+        # img = Image.open('C:/Users/mgodw/Documents/GOSH-FHRworks2020-BirthdayWish/BirthdayWish/logo.png')
+        # img = img.resize((100, 100), Image.ANTIALIAS)
+        # img = ImageTk.PhotoImage(img)
+
+    def startMainUI(self, root, top):
         mainTop = Toplevel()
+        mainTop.configure(bg='white')
         mainTop.master.title("Birthday Wish")
         mainTop.geometry('300x500')
         mainTop.resizable(False, False)
@@ -64,6 +94,8 @@ class BirthdayWish(Frame):
         mainTop.rowconfigure(11, pad=2)
         mainTop.rowconfigure(12, pad=2)
         mainTop.rowconfigure(13, pad=2)
+
+        mainTop.rowconfigure(14, pad=2)
 
         panel = Label(mainTop, text="Please select a month")
         panel.grid(row=0, column=1)
@@ -103,6 +135,9 @@ class BirthdayWish(Frame):
 
         decBtn = Button(mainTop, text="DEC", command=lambda: self.button_click(12, mainTop))
         decBtn.grid(row=4, column=2)
+
+        closeBtn = Button(mainTop, text="Click and Quit", command=lambda: self.quit(root))
+        closeBtn.grid(row=14, columnspan=3)
 
         #add a back button
 
@@ -202,16 +237,16 @@ class BirthdayWish(Frame):
             Label(mainTop, text=txt[4], style="BW.TLabel").grid(row=13, columnspan=2)
         return
 
+    def quit(self, root):
+        Label(root, text="Click ------^ to Exit", style="BW.TLabel").grid(row=13, columnspan=2)
+        root.destroy()
+
 def main():
-    root = Tk()
-    root.withdraw()
     #root.geometry('300x500')
     #root.resizable(False, False)
-
     #add icon
     #root.iconbitmap('C:/Users/mgodw/Documents/GOSH-FHIRworks2020-BirthdayWish/BirthdayWish/logo.ico')
     app = BirthdayWish()
-    root.mainloop()
 
 if __name__ == '__main__':
     main()
